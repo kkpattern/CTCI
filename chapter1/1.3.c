@@ -30,8 +30,17 @@ void remove_duplicate(char *string) {
 }
 
 int main() {
-  char string [] = "aabcdd";
+  char string[] = "aabcdd";
   remove_duplicate(string);
   assert(strcmp(string, "abcd") == 0);
+  char string1[] = "abcd";
+  remove_duplicate(string1);
+  assert(strcmp(string1, "abcd") == 0);
+  char string2[] = "abcdd";
+  remove_duplicate(string2);
+  assert(strcmp(string2, "abcd") == 0);
+  char string3[] = "aabcd";
+  remove_duplicate(string3);
+  assert(strcmp(string3, "abcd") == 0);
   return 0;
 }
