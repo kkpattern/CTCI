@@ -26,6 +26,7 @@ void remove_duplicate(char *string) {
     }
     ++test_char;
   }
+  // Mark the end of the string.
   *insert_position = '\0';
 }
 
