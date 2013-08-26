@@ -41,4 +41,5 @@ int main() {
   assert(0 == nth_to_last(list, 1, &value));
   assert(6 == value);
   assert(1 == nth_to_last(list, 7, &value));
+  singly_linked_list_free(list);
 }
