@@ -41,6 +41,18 @@ SinglyLinkedList *singly_linked_list_free(SinglyLinkedList *list) {
   return NULL;
 }
 
+
+// Print a SinglyLinkedList for debug.
+// @in list: The SinglyLinkedList to print.
+void singly_linked_list_print(SinglyLinkedList *list) {
+  SinglyLinkedList *node = list;
+  while (NULL != node) {
+    printf("%d->", node->value);
+    node = node->next;
+  }
+  printf("NULL\n");
+}
+
 // Allocate a linked list node.
 LinkedList *linked_list_alloc(int value) {
   LinkedList *node = (LinkedList *) malloc(sizeof(LinkedList));
@@ -78,4 +90,16 @@ LinkedList *linked_list_free(LinkedList *list) {
     node = tmp;
   }
   return NULL;
+}
+
+
+// Print a LinkedList for debug.
+// @in list: The LinkedList to print.
+void linked_list_print(LinkedList *list) {
+  LinkedList *node = list;
+  while (NULL != node) {
+    printf("%d->", node->value);
+    node = node->next;
+  }
+  printf("NULL\n");
 }

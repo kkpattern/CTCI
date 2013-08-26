@@ -23,6 +23,10 @@ SinglyLinkedList *singly_linked_list_append(SinglyLinkedList *list, int value);
 //   list = singly_linked_list_free(list);
 SinglyLinkedList *singly_linked_list_free(SinglyLinkedList *list);
 
+// Print a SinglyLinkedList for debug.
+// @in list: The SinglyLinkedList to print.
+void singly_linked_list_print(SinglyLinkedList *list);
+
 
 typedef struct _LinkedList {
   struct _LinkedList *prev;
@@ -46,6 +50,10 @@ LinkedList *linked_list_append(LinkedList *list, int value);
 //   list = linked_list_free(list);
 LinkedList *linked_list_free(LinkedList *list);
 
+
+// Print a LinkedList for debug.
+// @in list: The LinkedList to print.
+void linked_list_print(LinkedList *list);
 
 
 #endif
