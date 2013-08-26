@@ -1,5 +1,6 @@
 #include "lists.h"
 
+#include <stdio.h>
 #include <stdlib.h>
 
 // Allocate a singly linked list node.
