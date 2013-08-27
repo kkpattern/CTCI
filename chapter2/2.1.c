@@ -3,7 +3,7 @@
 #include <stddef.h>
 #include <stdlib.h>
 
-#include "lists.h"
+#include "ctci/lists.h"
 
 void remove_duplicates_in_place(LinkedList *list) {
   if (NULL == list) return;

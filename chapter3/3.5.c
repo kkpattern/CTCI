@@ -3,7 +3,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "stacks.h"
+#include "ctci/stacks.h"
 
 typedef struct _MyQueue {
   Stacks *stacks;

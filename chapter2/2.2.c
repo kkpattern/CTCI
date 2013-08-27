@@ -2,7 +2,7 @@
 #include <assert.h>
 #include <stddef.h>
 
-#include "lists.h"
+#include "ctci/lists.h"
 
 // Find the nth to last element of a singly linked list.
 // @in list: The SinglyLinkedList.

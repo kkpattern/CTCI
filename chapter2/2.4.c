@@ -1,7 +1,7 @@
 // Adds the two numbers and returns the sum as a linked list.
 #include <stddef.h>
 
-#include "lists.h"
+#include "ctci/lists.h"
 
 LinkedList *add(LinkedList *a, LinkedList *b) {
   LinkedList *result = NULL;

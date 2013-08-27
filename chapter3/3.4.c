@@ -9,7 +9,7 @@
 // Stacks.
 #include <assert.h>
 
-#include "stacks.h"
+#include "ctci/stacks.h"
 
 void solve_hanoi(Stacks *stacks, size_t from, size_t to, size_t disk_count) {
   if (1 < disk_count) {

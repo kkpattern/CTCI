@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <string.h>
 
-#include "stacks.h"
+#include "ctci/stacks.h"
 
 int main() {
   Stacks *stacks = stacks_init(3, 10);

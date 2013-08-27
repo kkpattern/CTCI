@@ -4,7 +4,7 @@
 #include <stdlib.h>
 #include <stdio.h>
 
-#include "lists.h"
+#include "ctci/lists.h"
 
 typedef struct _ListOfLinkedList {
   struct _ListOfLinkedList *next;

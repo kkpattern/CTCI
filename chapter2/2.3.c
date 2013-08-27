@@ -3,7 +3,7 @@
 #include <assert.h>
 #include <stddef.h>
 
-#include "lists.h"
+#include "ctci/lists.h"
 
 // Delete a node in the middle of a single linked list, given only access to
 // that node.
