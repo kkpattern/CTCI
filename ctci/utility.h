@@ -21,6 +21,12 @@ MemoryPool *memory_pool_init(size_t pool_size);
 // @return: Pointer to the memory. NULL if there is no enough memory.
 void *memory_pool_alloc(MemoryPool *pool, size_t pool_size);
 
+// Allocate a int from a MemoryPool.
+// @in pool: The MemoryPool.
+// @in value: The value to initialize the int.
+// @return: Pointer to the int. NULL if there is no enough memory.
+int *memory_pool_alloc_int(MemoryPool *pool, int value);
+
 // Free a MemoryPool.
 // @in pool: The MemoryPool to free.
 // @return: NULL.

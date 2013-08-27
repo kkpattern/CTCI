@@ -10,6 +10,13 @@ void test_memory_pool() {
   memory_pool_free(pool);
 }
 
+void test_memory_pool_alloc_int() {
+  MemoryPool *pool = memory_pool_init(10);
+  int *a = memory_pool_alloc_int(pool, 1);
+  assert(*a == 1);
+  memory_pool_free(pool);
+}
+
 void test_int_compare_by_pointer() {
   int a = 1;
   int b = 2;
@@ -22,6 +29,7 @@ void test_int_compare_by_pointer() {
 
 int main() {
   test_memory_pool();
+  test_memory_pool_alloc_int();
   test_int_compare_by_pointer();
   return 0;
 }
