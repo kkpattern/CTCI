@@ -82,19 +82,6 @@ int stacks_pop(Stacks *stacks, int stack_id, int *value) {
   return 0;
 }
 
-
-// Count the current elements in the stack.
-// @in stacks: The Stacks.
-// @in stack_id: The number of stack to count.
-// @out result: The number of elements in the stack.
-// @return: 0 if succed. 1 if the stack_id is invalid.
-int stacks_count(Stacks *stacks, size_t stack_id, size_t *result) {
-  if (stack_id > stacks->stack_number) return 1;
-
-  *result = stacks->stack_head[stack_id-1];
-  return 0;
-}
-
 // Free a Stacks.
 // @in stacks: The Stacks to free.
 // @return: NULL.
