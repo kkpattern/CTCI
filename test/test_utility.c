@@ -10,7 +10,18 @@ void test_memory_pool() {
   memory_pool_free(pool);
 }
 
+void test_int_compare_by_pointer() {
+  int a = 1;
+  int b = 2;
+  assert(-1 == int_compare_by_pointer(&a, &b));
+  a = 2;
+  assert(0 == int_compare_by_pointer(&a, &b));
+  a = 3;
+  assert(1 == int_compare_by_pointer(&a, &b));
+}
+
 int main() {
   test_memory_pool();
+  test_int_compare_by_pointer();
   return 0;
 }

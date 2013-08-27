@@ -27,4 +27,11 @@ void *memory_pool_alloc(MemoryPool *pool, size_t pool_size);
 MemoryPool *memory_pool_free(MemoryPool *pool);
 
 
+// Compare two ints by pointers to them.
+// @in a: Pointer the int a.
+// @in b: Pointer the int b.
+// @return: If a < b return -1. If a == b return 0. If a > b return 1.
+int int_compare_by_pointer(void *a, void *b);
+
+
 #endif
