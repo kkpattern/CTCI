@@ -38,6 +38,11 @@ int stacks_push(Stacks *stacks, int stack_id, int value);
 //   invalid. 2 if the stack is empty.
 int stacks_pop(Stacks *stacks, int stack_id, int *value);
 
+// Count the current elements in the stack.
+// @in stacks: The Stacks.
+// @in stack_id: The number of stack to count.
+size_t stacks_count(Stacks *stacks, size_t stack_id);
+
 // Free a Stacks.
 // @in stacks: The Stacks to free.
 // @return: NULL.
