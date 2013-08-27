@@ -91,3 +91,32 @@ Stacks *stacks_free(Stacks *stacks) {
   free(stacks);
   return NULL;
 }
+
+// Initialize a Stack.
+// @in initial_size: The initial size of the Stack.
+Stack *stack_init(size_t initial_size) {
+  return stacks_init(1, initial_size);
+}
+
+// Push a value into Stack.
+// @in stack: The Stack to which the value is pushed.
+// @in value: The value to push.
+// @return: 0 if the value is pushed successfully. 2 if there is no memory.
+int stack_push(Stack *stack, int value) {
+  return stacks_push(stack, 1, value);
+}
+
+// Pop a value out from Stack.
+// @in stack: The Stack from where the value is popped.
+// @out value: The popped out value.
+// @return: 0 if the value is popped out successfully. 2 if the stack is empty.
+int stack_pop(Stack *stack, int *value) {
+  return stacks_pop(stack, 1, value);
+}
+
+// Free a Stack.
+// @in stack: The Stack to free.
+// @return: NULL.
+Stack *stack_free(Stack *stack) {
+  return stacks_free(stack);
+}

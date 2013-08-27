@@ -43,5 +43,28 @@ int stacks_pop(Stacks *stacks, int stack_id, int *value);
 // @return: NULL.
 Stacks *stacks_free(Stacks *stacks);
 
+typedef Stacks Stack;
+
+// Initialize a Stack.
+// @in initial_size: The initial size of the Stack.
+Stack *stack_init(size_t initial_size);
+
+// Push a value into Stack.
+// @in stack: The Stack to which the value is pushed.
+// @in value: The value to push.
+// @return: 0 if the value is pushed successfully. 2 if there is no memory.
+int stack_push(Stack *stack, int value);
+
+// Pop a value out from Stack.
+// @in stack: The Stack from where the value is popped.
+// @out value: The popped out value.
+// @return: 0 if the value is popped out successfully. 2 if the stack is empty.
+int stack_pop(Stack *stack, int *value);
+
+// Free a Stack.
+// @in stack: The Stack to free.
+// @return: NULL.
+Stack *stack_free(Stack *stack);
+
 
 #endif
