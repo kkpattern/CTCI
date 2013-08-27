@@ -2,6 +2,9 @@
 // which returns the minimum element. Push, pop and min should all operate in
 // O(1) time.
 #include <assert.h>
+#include <stddef.h>
+#include <stdlib.h>
+#include <string.h>
 
 typedef struct _MinStack {
   int *stack;
@@ -64,14 +67,14 @@ int min_stack_push(MinStack *stack, int value) {
   stack->stack[stack->stack_head] = value;
 
   // Update min value.
-  if (0 == stack->header) {
-    stack->min_value[stack_head] = value;
+  if (0 == stack->stack_head) {
+    stack->min_value[stack->stack_head] = value;
   } else {
-    int last_min_value = min_value[stack_head-1];
-    if (value < stack->last_min_value) {
-      stack->min_value[stack_head] = value;
+    int last_min_value = stack->min_value[stack->stack_head-1];
+    if (value < last_min_value) {
+      stack->min_value[stack->stack_head] = value;
     } else {
-      stack->min_value[stack_head] = last_min_value;
+      stack->min_value[stack->stack_head] = last_min_value;
     }
   }
 
@@ -84,6 +87,22 @@ int min_stack_push(MinStack *stack, int value) {
 // @out value: The popped out value.
 // @return: 0 if the value is successfully popped. 1 if the stack is empty.
 int min_stack_pop(MinStack *stack, int *value) {
+  if (0 == stack->stack_head) return 1;
+
+  stack->stack_head -= 1;
+  *value = stack->stack[stack->stack_head];
+  return 0;
+}
+
+// Get the min value in the stack.
+// @in stack: The stack.
+// @out value: The min value.
+// @return: 0 if the min value is successfully got. 1 if the stack is empty.
+int min_stack_min(MinStack *stack, int *value) {
+  if (0 == stack->stack_head) return 1;
+
+  *value = stack->min_value[stack->stack_head-1];
+  return 0;
 }
 
 // Free a stack.
@@ -94,4 +113,32 @@ MinStack *min_stack_free(MinStack *stack) {
   free(stack->min_value);
   free(stack);
   return NULL;
+}
+
+int main() {
+  MinStack *stack = min_stack_init(1);
+  int value = 0;
+  assert(1 == min_stack_pop(stack, &value));
+  assert(1 == min_stack_min(stack, &value));
+
+  assert(0 == min_stack_push(stack, 2));
+  assert(0 == min_stack_min(stack, &value));
+  assert(2 == value);
+  assert(0 == min_stack_pop(stack, &value));
+  assert(2 == value);
+
+  assert(0 == min_stack_push(stack, 2));
+  assert(0 == min_stack_push(stack, 1));
+  assert(0 == min_stack_min(stack, &value));
+  assert(1 == value);
+  assert(0 == min_stack_push(stack, 3));
+  assert(0 == min_stack_min(stack, &value));
+  assert(1 == value);
+  assert(0 == min_stack_push(stack, 0));
+  assert(0 == min_stack_min(stack, &value));
+  assert(0 == value);
+
+
+  stack = min_stack_free(stack);
+  return 0;
 }
