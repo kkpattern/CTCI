@@ -1,5 +1,5 @@
 OBJDIR := build
-SUBDIRS = ctci chapter1 chapter2 chapter3 test
+SUBDIRS = ctci chapter1 chapter2 chapter3 chapter4 test
 
 .PHONY: subdirs $(SUBDIRS)
 subdirs: $(SUBDIRS)
