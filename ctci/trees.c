@@ -71,6 +71,29 @@ int binary_search_tree_insert(BinarySearchTree *tree, void *key, void *value) {
   return 0;
 }
 
+// Find a value with key in a BinarySearchTree.
+// @in tree: The tree to search.
+// @in key: The key of value.
+// @out value: The result value.
+// @return: 0 if the value is found. 1 if the key does not exist.
+int binary_search_tree_find(BinarySearchTree *tree, void *key, void **value) {
+  int result = 1;
+  BinarySearchTreeNode *test_node = tree->root;
+  while (NULL != test_node) {
+    int compare_result = tree->key_compare(key, test_node->key);
+    if (0 == compare_result) {
+      *value = test_node->value;
+      result = 0;
+      break;
+    } else if (0 > compare_result) {
+      test_node = test_node->left;
+    } else {
+      test_node = test_node->right;
+    }
+  }
+  return result;
+}
+
 // Free a BinarySearchTree.
 // @in tree: The BinarySearchTree to free.
 // @return: NULL

@@ -33,6 +33,13 @@ BinarySearchTree *binary_search_tree_init(CompareFunction *key_compare,
 //   allocating memory.
 int binary_search_tree_insert(BinarySearchTree *tree, void *key, void *value);
 
+// Find a value with key in a BinarySearchTree.
+// @in tree: The tree to search.
+// @in key: The key of value.
+// @out value: The result value.
+// @return: 0 if the value is found. 1 if the key does not exist.
+int binary_search_tree_find(BinarySearchTree *tree, void *key, void **value);
+
 // Free a BinarySearchTree.
 // @in tree: The BinarySearchTree to free.
 // @return: NULL
