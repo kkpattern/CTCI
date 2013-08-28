@@ -9,6 +9,16 @@ typedef struct _BinarySearchTreeNode {
   struct _BinarySearchTreeNode *right;
 } BinarySearchTreeNode;
 
+// Allocate a BinarySearchTreeNode.
+// @in value: The value of the node.
+// @return: Pointer to the new node. NULL if any error on allocating memory.
+BinarySearchTreeNode *binary_search_tree_node_alloc(void * key, void *value);
+
+// Free a BinarySearchTreeNode and its children.
+// @in node: The BinarySearchTreeNode to free.
+// @return: NULL.
+BinarySearchTreeNode *binary_search_tree_node_free(BinarySearchTreeNode *node);
+
 typedef int (CompareFunction)(void *a, void *b);
 
 typedef struct _BinarySearchTree {
