@@ -31,18 +31,18 @@ void singly_linked_list_print(SinglyLinkedList *list);
 typedef struct _LinkedList {
   struct _LinkedList *prev;
   struct _LinkedList *next;
-  int value;
+  void *value;
 } LinkedList;
 
 
 // Allocate a linked list node.
-LinkedList *linked_list_alloc(int value);
+LinkedList *linked_list_alloc(void *value);
 
 // Append a node to the LinkedList.
 // @in list: The list to which the node is appended.
 // @in value: The value of the node.
 // @return: The new head of the LinkedList.
-LinkedList *linked_list_append(LinkedList *list, int value);
+LinkedList *linked_list_append(LinkedList *list, void *value);
 
 // Free a LinkedList.
 // @in list: The list to free.

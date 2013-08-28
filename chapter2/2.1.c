@@ -4,6 +4,7 @@
 #include <stdlib.h>
 
 #include "ctci/lists.h"
+#include "ctci/utility.h"
 
 void remove_duplicates_in_place(LinkedList *list) {
   if (NULL == list) return;
@@ -39,15 +40,17 @@ void remove_duplicates_in_place(LinkedList *list) {
 }
 
 int main() {
+  MemoryPool *pool = memory_pool_init(sizeof(100) * 100);
   LinkedList *list = NULL;
-  list = linked_list_append(list, 1);
-  list = linked_list_append(list, 2);
-  list = linked_list_append(list, 3);
-  list = linked_list_append(list, 2);
-  list = linked_list_append(list, 4);
+  list = linked_list_append(list, memory_pool_alloc_int(pool, 1));
+  list = linked_list_append(list, memory_pool_alloc_int(pool, 2));
+  list = linked_list_append(list, memory_pool_alloc_int(pool, 3));
+  list = linked_list_append(list, memory_pool_alloc_int(pool, 2));
+  list = linked_list_append(list, memory_pool_alloc_int(pool, 4));
   linked_list_print(list);
   remove_duplicates_in_place(list);
   linked_list_print(list);
   list = linked_list_free(list);
+  memory_pool_free(pool);
   return 0;
 }

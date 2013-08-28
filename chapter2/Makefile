@@ -8,5 +8,5 @@ PROGS = $(patsubst %.c,$(OBJDIR)/%,$(SRCS))
 
 all: $(PROGS)
 
-$(OBJDIR)/%: %.c $(OBJDIR)/lists.o
+$(OBJDIR)/%: %.c $(OBJDIR)/lists.o $(OBJDIR)/utility.o
 	$(CC) $(CCFLAGS) -o $@ $^

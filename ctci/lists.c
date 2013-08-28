@@ -55,7 +55,7 @@ void singly_linked_list_print(SinglyLinkedList *list) {
 }
 
 // Allocate a linked list node.
-LinkedList *linked_list_alloc(int value) {
+LinkedList *linked_list_alloc(void *value) {
   LinkedList *node = (LinkedList *) malloc(sizeof(LinkedList));
   node->prev = NULL;
   node->next = NULL;
@@ -67,7 +67,7 @@ LinkedList *linked_list_alloc(int value) {
 // @in list: The list to which the node is appended.
 // @in value: The value of the node.
 // @return: The new head of the LinkedList.
-LinkedList *linked_list_append(LinkedList *list, int value) {
+LinkedList *linked_list_append(LinkedList *list, void *value) {
   if (NULL == list) return linked_list_alloc(value);
 
   LinkedList *tail = list;
