@@ -44,6 +44,13 @@ LinkedList *linked_list_alloc(void *value);
 // @return: The new head of the LinkedList.
 LinkedList *linked_list_append(LinkedList *list, void *value);
 
+// Pop out the head node of a LinkedList.
+// @in list: The LinkedList.
+// @out value: The value of the head node. If the LinkedList is empty the value
+//   is unchanged.
+// @return: The new head of the LinkedList.
+LinkedList *linked_list_pop_head(LinkedList *list, void **value);
+
 // Free a LinkedList.
 // @in list: The list to free.
 // @return: NULL to clear the variable. E.g. 

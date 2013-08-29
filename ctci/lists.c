@@ -93,6 +93,20 @@ LinkedList *linked_list_free(LinkedList *list) {
   return NULL;
 }
 
+// Pop out the head node of a LinkedList.
+// @in list: The LinkedList.
+// @out value: The value of the head node. If the LinkedList is empty the value
+//   is unchanged.
+// @return: The new head of the LinkedList.
+LinkedList *linked_list_pop_head(LinkedList *list, void **value) {
+  if (NULL == list) return NULL;
+
+  LinkedList *next = list->next;
+  *value = list->value;
+  if (NULL != next) next->prev = NULL;
+
+  return next;
+}
 
 // Print a LinkedList for debug.
 // @in list: The LinkedList to print.
