@@ -3,6 +3,17 @@
 #include "ctci/trees.h"
 #include "ctci/utility.h"
 
+void test_binary_search_tree_node_alloc() {
+  BinarySearchTreeNode *node = binary_search_tree_node_alloc(
+      (void*)1, (void *)2);
+  assert((void*)1 == node->key);
+  assert((void*)2 == node->value);
+  assert(NULL == node->left);
+  assert(NULL == node->right);
+  assert(NULL == node->parent);
+  node = binary_search_tree_node_free(node);
+}
+
 void test_binary_search_tree_init() {
   BinarySearchTree *tree = binary_search_tree_init(int_compare_by_pointer,
                                                    int_compare_by_pointer);
@@ -62,6 +73,7 @@ void test_binary_search_tree_find() {
 }
 
 int main() {
+  test_binary_search_tree_node_alloc();
   test_binary_search_tree_init();
   test_binary_search_tree_insert();
   test_binary_search_tree_find();

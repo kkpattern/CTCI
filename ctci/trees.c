@@ -56,19 +56,24 @@ int binary_search_tree_insert(BinarySearchTree *tree, void *key, void *value) {
   if (NULL == new_node) return 1;
 
   BinarySearchTreeNode **insert_position = &(tree->root);
+  BinarySearchTreeNode *parent = NULL;
   while (NULL != *insert_position) {
     int compare_result = tree->key_compare(new_node->key,
                                            (*insert_position)->key);
     if (0 == compare_result) {
+      parent = (*insert_position)->parent;
       binary_search_tree_node_free(*insert_position);
       *insert_position = NULL;
     } else if (0 > compare_result) {
+      parent = *insert_position;
       insert_position = &((*insert_position)->left);
     } else {
+      parent = *insert_position;
       insert_position = &((*insert_position)->right);
     }
   }
   *insert_position = new_node;
+  new_node->parent = parent;
 
   return 0;
 }

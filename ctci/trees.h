@@ -7,6 +7,7 @@ typedef struct _BinarySearchTreeNode {
   void *value;
   struct _BinarySearchTreeNode *left;
   struct _BinarySearchTreeNode *right;
+  struct _BinarySearchTreeNode *parent;
 } BinarySearchTreeNode;
 
 // Allocate a BinarySearchTreeNode.
